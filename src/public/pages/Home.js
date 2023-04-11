@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Container, Text, Col, Card, Row, Badge, Button, Input, Avatar, Image, Divider } from '@nextui-org/react';
 import AudioVisualizer from './AudioVisualizer';
+import Http from '../services/Services';
 
 let data = [];
 let theme; 
@@ -156,7 +157,7 @@ const PlayerComponent = (_theme,setTheme,_lengthAudio) => {
 }
 
 const getMusic = (setData) => {
-    fetch('http://localhost:8000/get-audio').then(rs => rs.json()).then(rs => {
+    fetch( Http.host + '/get-audio').then(rs => rs.json()).then(rs => {
         setData(rs);
 
         firstSong = rs[0];
