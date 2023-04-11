@@ -5,6 +5,8 @@ const fs = require('fs');
 const path = require('path');
 
 app.use(express.static(path.join(__dirname,'build')));
+app.use('/audio',express.static(path.join(__dirname,'public','audio')));
+app.use('/images',express.static(path.join(__dirname,'public','images')));
 
 app.get('/get-audio', (req,res) => {
 
